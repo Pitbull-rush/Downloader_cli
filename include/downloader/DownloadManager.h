@@ -65,7 +65,7 @@ public:
             );
         }
 
-        DownloadTask task = tasks_.front();
+        DownloadTask task = std::move(tasks_.front());
         tasks_.pop();
 
         state_.queueCount--;
@@ -87,7 +87,7 @@ public:
             );
         }
 
-        DownloadResult result = results_.front();
+        DownloadResult result = std::move(results_.front());
         results_.pop();
 
         return result;
